@@ -8,3 +8,5 @@ sequelize model:create --name user --attributes name:string,age:integer,email:st
 sequelize db:migrate
 
 sequelize db:migrate:undo
+
+SELECT * FROM users;
