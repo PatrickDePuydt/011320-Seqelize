@@ -28,6 +28,19 @@ db.user.findOne({
   console.log(`✅ User: `, user);
 }).catch( error => console.log(`Error: `, error));
 
+db.user.findOrCreate({
+  where: {
+    name: 'Brandi Butler'
+  },
+  defaults: {
+    email: 'brandi@williams.com',
+    age: 21
+  }
+}).then(([user, created]) => {
+  console.log(`🏎️ ${user.name} was created: ${created}`);
+  process.exit()
+}).catch( error => console.log(error));
+
 // Update
 
 // Delete
