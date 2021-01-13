@@ -1,7 +1,7 @@
-// Get all our models
+// ------------------------ Get all our models
 const db = require('./models'); // individual user
 
-// Create
+// ------------------------ Create
 // db.user.create({
 //   name: 'Steve Peters',
 //   age: 45,
@@ -18,29 +18,48 @@ const db = require('./models'); // individual user
 //   console.log(`❌ Error: `, error);
 // });
 
-// Read
+// ------------------------ Read
 
-db.user.findOne({
+// db.user.findOne({
+//   where: {
+//     name: 'Steve Peters'
+//   }
+// }).then( user => {
+//   console.log(`✅ User: `, user);
+// }).catch( error => console.log(`Error: `, error));
+
+// db.user.findOrCreate({
+//   where: {
+//     name: 'Brandi Butler'
+//   },
+//   defaults: {
+//     email: 'brandi@williams.com',
+//     age: 21
+//   }
+// }).then(([user, created]) => {
+//   console.log(`🏎️ ${user.name} was created: ${created}`);
+//   process.exit()
+// }).catch( error => console.log(error));
+
+// ------------------------ Update
+// db.user.update({
+//   name: 'Steven PETERS',
+//   age: 100
+// }, {
+//   where: {
+//     id: 1
+//   }
+// }).then( numberOfRowsUpdated => {
+//  console.log(` 🍩numberOfRowsUpdated`, numberOfRowsUpdated); 
+// }).catch(error => console.log(`🛩️ error: `, error));
+
+
+// ------------------------ Delete
+
+db.user.destroy({
   where: {
-    name: 'Steve Peters'
+    name: 'Brian Hague'
   }
-}).then( user => {
-  console.log(`✅ User: `, user);
-}).catch( error => console.log(`Error: `, error));
-
-db.user.findOrCreate({
-  where: {
-    name: 'Brandi Butler'
-  },
-  defaults: {
-    email: 'brandi@williams.com',
-    age: 21
-  }
-}).then(([user, created]) => {
-  console.log(`🏎️ ${user.name} was created: ${created}`);
-  process.exit()
-}).catch( error => console.log(error));
-
-// Update
-
-// Delete
+}).then(numRowsDeleted => {
+  console.log(`🥟 rows deleted:`, numRowsDeleted);
+}).catch( error => console.log(`Error`, error));
