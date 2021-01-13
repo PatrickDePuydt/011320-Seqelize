@@ -56,10 +56,19 @@ const db = require('./models'); // individual user
 
 // ------------------------ Delete
 
-db.user.destroy({
-  where: {
-    name: 'Brian Hague'
-  }
-}).then(numRowsDeleted => {
-  console.log(`🥟 rows deleted:`, numRowsDeleted);
-}).catch( error => console.log(`Error`, error));
+// db.user.destroy({
+//   where: {
+//     name: 'Brian Hague'
+//   }
+// }).then(numRowsDeleted => {
+//   console.log(`🥟 rows deleted:`, numRowsDeleted);
+// }).catch( error => console.log(`Error`, error));
+
+
+let firstUser;
+
+db.user.findByPk(1)
+.then( user => {
+  firstUser = user;
+  console.log(`🍨 first user is ${firstUser.name}`);
+}).catch( error => console.log(error));
