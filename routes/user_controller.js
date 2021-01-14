@@ -33,7 +33,7 @@ router.post('/', (req, res) => {
     email: req.body.email
   }).then( user => {
     console.log(`🌻 User:`, user.name);
-    res.redirect('/users');
+    res.redirect('/users/new');
   }).catch( error => console.log(`❌`, error));
 
   // db.user.create(req.body);
