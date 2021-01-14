@@ -9,3 +9,14 @@ app.use(express.static('public'));
 app.use(layouts);
 app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride('_method'));
+
+// Default Routes
+app.get('/', (req, res) => {
+  res.send('Home');
+});
+
+app.get('/*', (req, res) => {
+  res.send('404');
+});
+
+app.listen(8000, () => console.log(`🙌`));
