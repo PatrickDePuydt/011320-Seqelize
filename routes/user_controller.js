@@ -25,7 +25,6 @@ router.get('/new', (req, res) => {
 router.post('/', (req, res) => {
   console.log(`🍦 ------ POST /users`)
   console.log(`🛠️ ------ POST /users`, req.body)
-  res.send('New user who dis')
   
   db.user.create({
     name: req.body.name,
