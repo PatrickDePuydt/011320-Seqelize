@@ -15,6 +15,8 @@ app.get('/', (req, res) => {
   res.send('Home');
 });
 
+app.use('/users', require('./routes/user_controller'));
+
 app.get('/*', (req, res) => {
   res.send('404');
 });
