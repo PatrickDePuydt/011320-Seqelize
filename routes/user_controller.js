@@ -4,8 +4,15 @@ const db = require('../models');
 
 // Index - GET /users
 router.get('/', (req, res) => {
-  console.log(`🧶 ------ GET /users`)
-  res.send('Get all the users')
+  console.log(`🏄 ------ GET /users`);
+  // Query database for all users
+  db.user.findAll()
+  .then(users => {
+    res.send(users);
+  }).catch(error => {
+    console.log(`🇨🇩 Error: ${error}`);
+    res.send('ERROR'); // Usually make a 404 view to redirect to
+  })
 });
 
 // New - GET /users/new
