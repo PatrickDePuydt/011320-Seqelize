@@ -26,6 +26,17 @@ router.post('/', (req, res) => {
   console.log(`🍦 ------ POST /users`)
   console.log(`🛠️ ------ POST /users`, req.body)
   res.send('New user who dis')
+  
+  db.user.create({
+    name: req.body.name,
+    age: Math.floor(req.body.age),
+    email: req.body.email
+  }).then( user => {
+    console.log(`🌻 User:`, user.name);
+    res.redirect('/users');
+  }).catch( error => console.log(`❌`, error));
+
+  // db.user.create(req.body);
 });
 
 // Show/Details - GET /users/:id
