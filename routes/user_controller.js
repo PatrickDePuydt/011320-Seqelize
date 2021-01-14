@@ -24,7 +24,7 @@ router.get('/new', (req, res) => {
 // Create - POST /users
 router.post('/', (req, res) => {
   console.log(`🍦 ------ POST /users`)
-  console.log(`🛠️ ------ POST /users: ${req.body}`)
+  console.log(`🛠️ ------ POST /users`, req.body)
   res.send('New user who dis')
 });
 
