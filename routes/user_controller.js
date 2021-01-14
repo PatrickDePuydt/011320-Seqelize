@@ -18,7 +18,7 @@ router.get('/', (req, res) => {
 // New - GET /users/new
 router.get('/new', (req, res) => {
   console.log(`⭐ ------ GET /users/new`)
-  res.send('New User')
+  res.render('users/new');
 });
 
 // Create - POST /users
